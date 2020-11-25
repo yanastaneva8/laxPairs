@@ -1,0 +1,168 @@
+Notebook[{Cell[
+CellGroupData[{Cell[
+TextData[{"Quantum"," ","Lax"," ","Pairs"}],
+"Title",ExpressionUUID -> "c78c79b8-2e83-4d71-8c75-9e04f98f4ffa"],Cell[
+CellGroupData[
+{Cell[
+TextData[{"Yana"," ","Staneva","\n","University"," ","of"," ","Cologne",StyleBox[
+RowBox[{","," "}]],"2020",StyleBox[RowBox[{" ","/"," "}]],"University"," ","of"," ","Glasgow",StyleBox[
+RowBox[{","," "}]],"2017","\n","<","ystaneva","@","math",".","uni-koeln",".","de",StyleBox[
+RowBox[{">"," ","<"}]],StyleBox[StyleBox["yanastaneva8",FontFamily -> "Bitstream Vera Sans Mono"],
+FontSize -> 18],StyleBox[StyleBox["@",FontFamily -> "Bitstream Vera Sans Mono"],FontSize -> 18],StyleBox[
+StyleBox["gmail",FontFamily -> "Bitstream Vera Sans Mono"],FontSize -> 18],StyleBox[
+StyleBox[".",FontFamily -> "Bitstream Vera Sans Mono"],FontSize -> 18],StyleBox[StyleBox[
+"com",FontFamily -> "Bitstream Vera Sans Mono"],FontSize -> 18],">"}],"Subsection",
+CellFrame -> 0,ExpressionUUID -> "7e64e64d-1415-47a9-b287-f31831bb3655"],Cell[
+TextData[
+{"This"," ","notebook"," ","computes"," ","the"," ","commutator"," ","of"," ","two"," ","3x3"," ","matrix"," ","operators",StyleBox[
+RowBox[{","," "}]],"L"," ","and"," ","M",StyleBox[RowBox[{","," "}]],"which"," ","constitute"," ","a"," ","quantum"," ","Lax"," ","pair",StyleBox[
+RowBox[{" ","["}]],"1",StyleBox[RowBox[{"]"," "}]],"for"," ","a"," ","given"," ","3D"," ","quantum"," ","integrable"," ","system",StyleBox[
+RowBox[{" ","["}]],"2",StyleBox[RowBox[{"]."," "}]],"It"," ","also"," ","provides"," ","symbolic"," ","expressions"," ","for"," ","the"," ","first"," ","three"," ","integrals"," ","of"," ","motion",StyleBox[
+RowBox[{"."," "}]],"The"," ","code"," ","can"," ","be"," ","exported"," ","to"," ","a"," ","PDF",StyleBox[
+RowBox[{","," "}]],"in"," ","order"," ","to"," ","be"," ","included"," ","in"," ","a"," ","LaTeX"," ","file",".","\n","\n","The"," ","notebook"," ","can"," ","be"," ","used"," ","to"," ","check"," ","if"," ","a"," ","given"," ","pair"," ","satisfies"," ","indeed"," ","the"," ","commuting"," ","relation",StyleBox[
+RowBox[{","," "}]],"or"," ","to"," ","manipulate"," ","an"," ","expression"," ","in"," ","order"," ","to"," ","derive"," ","the"," ","desired"," ","Lax"," ","pair",StyleBox[
+RowBox[{"."," "}]],"Note"," ","that"," ","L"," ","is"," ","isospectral"," ","and"," ","that"," ","multiplication"," ","of"," ","the"," ","phase"," ","space"," ","variables"," ","p"," ","and"," ","q"," ","is"," ","non-commutative"," ","in"," ","general",StyleBox[
+RowBox[{","," "}]],"as"," ","the"," ","momentum"," ","term"," ","p"," ","is"," ","an"," ","operator",StyleBox[
+RowBox[{","," "}]],"\n","p_","{","i",StyleBox[RowBox[{"}"," ","="," ","\[PartialD]/\[PartialD]"}]],"q_","{","i",StyleBox[
+RowBox[{"},"," "}]],"see",StyleBox[RowBox[{" ","["}]],"3","].","\n","\n","The"," ","code"," ","as"," ","it"," ","is"," ","treats"," ","the"," ","Lax"," ","pair"," ","for"," ","the"," ","3D"," ","Quantum"," ","Calogero-Moser"," ","system",StyleBox[
+RowBox[{" ","["}]],"4",StyleBox[RowBox[{"]."," "}]],"It"," ","is"," ","used"," ","in"," ","the"," ","work"," ","of"," ","the"," ","author",StyleBox[
+RowBox[{" ","["}]],"3","].","\n","\n","Do"," ","not"," ","hesitate"," ","to"," ","contact"," ","the"," ","author"," ","with"," ","any"," ","questions"," ","or"," ","queries",".","\n"}],
+"Text",ExpressionUUID -> "f4eebb30-2070-40ca-a3c6-c7aee1d0724c"]},Open],ExpressionUUID -> "def35ceb-e460-42e7-aaa2-b69ff50e511c"],Cell[
+CellGroupData[
+{Cell[
+TextData[{"Input"," ","Lax"," ","Matrices"," ","L",StyleBox[RowBox[{" ","&"," "}]],"M",":"}],
+"Section",ExpressionUUID -> "8d04aae0-faa9-486b-86e0-b9e35ec0e25e"],Cell[
+BoxData[
+RowBox[{RowBox[{RowBox[{"quantumRationalL"," ","="," ",RowBox[{"{",RowBox[{RowBox[
+{"{",RowBox[{RowBox[{"Subscript","[",RowBox[{"p",",","1"}],"]"}],","," ",RowBox[{"\[ImaginaryI]k"," ",RowBox[
+{"Power","[",RowBox[{RowBox[{"Subscript","[",RowBox[{"q",","," ","12"}],"]"}],","," ",RowBox[
+{"HoldForm","[",RowBox[{"-","1"}],"]"}]}],"]"}]}],",","\n",RowBox[{"\[ImaginaryI]"," ","k"," ",RowBox[
+{"Power","[",RowBox[{RowBox[{"Subscript","[",RowBox[{"q",","," ","13"}],"]"}],","," ",RowBox[
+{"HoldForm","[",RowBox[{"-","1"}],"]"}]}],"]"}]}]}],"}"}],",","\n",RowBox[{"{",RowBox[
+{RowBox[{"\[ImaginaryI]"," ","k"," ",RowBox[{"Power","[",RowBox[{RowBox[{"Subscript","[",RowBox[
+{"q",","," ","21"}],"]"}],","," ",RowBox[{"HoldForm","[",RowBox[{"-","1"}],"]"}]}],"]"}]}],","," ",RowBox[
+{"Subscript","[",RowBox[{"p",",","2"}],"]"}],",","\n",RowBox[{"\[ImaginaryI]"," ","k"," ",RowBox[
+{"Power","[",RowBox[{RowBox[{"Subscript","[",RowBox[{"q",","," ","23"}],"]"}],","," ",RowBox[
+{"HoldForm","[",RowBox[{"-","1"}],"]"}]}],"]"}]}]}],"}"}],",","\n",RowBox[{"{",RowBox[
+{RowBox[{"\[ImaginaryI]"," ","k"," ",RowBox[{"Power","[",RowBox[{RowBox[{"Subscript","[",RowBox[
+{"q",","," ","31"}],"]"}],","," ",RowBox[{"HoldForm","[",RowBox[{"-","1"}],"]"}]}],"]"}]}],",","\n",RowBox[
+{"\[ImaginaryI]"," ","k"," ",RowBox[{"Power","[",RowBox[{RowBox[{"Subscript","[",RowBox[
+{"q",","," ","32"}],"]"}],","," ",RowBox[{"HoldForm","[",RowBox[{"-","1"}],"]"}]}],"]"}]}],","," ",RowBox[
+{"Subscript","[",RowBox[{"p",",","3"}],"]"}]}],"}"}]}],"}"}]}],";"}],"\n","\[NonBreakingSpace]",RowBox[
+{"(*",RowBox[{"OutputForm","[","quantumRationalL","]"}],"*)"}]}]],"Input",ExpressionUUID -> "76e68ef3-85d5-4aab-957d-2be1e9284e40"],Cell[
+BoxData[
+RowBox[{RowBox[{RowBox[{"quantumRationalM"," ","="," ",RowBox[{"{",RowBox[{RowBox[
+{"{",RowBox[{RowBox[{"k"," ",RowBox[{"Power","[",RowBox[{RowBox[{"Subscript","[",RowBox[
+{"q",","," ","1213"}],"]"}],","," ",RowBox[{"HoldForm","[",RowBox[{"-","2"}],"]"}]}],"]"}]}],",","\n",RowBox[
+{RowBox[{"-","k"}]," ",RowBox[{"Power","[",RowBox[{RowBox[{"Subscript","[",RowBox[
+{"q",","," ","12"}],"]"}],","," ",RowBox[{"HoldForm","[",RowBox[{"-","2"}],"]"}]}],"]"}]}],","," ",RowBox[
+{RowBox[{"-","k"}]," ",RowBox[{"Power","[",RowBox[{RowBox[{"Subscript","[",RowBox[
+{"q",","," ","13"}],"]"}],",",RowBox[{"HoldForm","[",RowBox[{"-","2"}],"]"}]}],"]"}]}]}],"}"}],",","\n",RowBox[
+{"{",RowBox[{RowBox[{RowBox[{"-","k"}]," ",RowBox[{"Power","[",RowBox[{RowBox[{"Subscript","[",RowBox[
+{"q",","," ","21"}],"]"}],","," ",RowBox[{"HoldForm","[",RowBox[{"-","2"}],"]"}]}],"]"}]}],","," ",RowBox[
+{"k"," ",RowBox[{"Power","[",RowBox[{RowBox[{"Subscript","[",RowBox[{"q",","," ","2123"}],"]"}],",",RowBox[
+{"HoldForm","[",RowBox[{"-","2"}],"]"}]}],"]"}]}],",","\n",RowBox[{RowBox[{"-","k"}]," ",RowBox[
+{"Power","[",RowBox[{RowBox[{"Subscript","[",RowBox[{"q",","," ","23"}],"]"}],","," ",RowBox[
+{"HoldForm","[",RowBox[{"-","2"}],"]"}]}],"]"}]}]}],"}"}],",","\n",RowBox[{"{",RowBox[
+{RowBox[{RowBox[{"-","k"}]," ",RowBox[{"Power","[",RowBox[{RowBox[{"Subscript","[",RowBox[
+{"q",","," ","31"}],"]"}],","," ",RowBox[{"HoldForm","[",RowBox[{"-","2"}],"]"}]}],"]"}]}],","," ",RowBox[
+{RowBox[{"-","k"}]," ",RowBox[{"Power","[",RowBox[{RowBox[{"Subscript","[",RowBox[
+{"q",","," ","32"}],"]"}],","," ",RowBox[{"HoldForm","[",RowBox[{"-","2"}],"]"}]}],"]"}]}],",","\n",RowBox[
+{"k"," ",RowBox[{"Power","[",RowBox[{RowBox[{"Subscript","[",RowBox[{"q",","," ","3132"}],"]"}],","," ",RowBox[
+{"HoldForm","[",RowBox[{"-","2"}],"]"}]}],"]"}]}]}],"}"}]}],"}"}]}],";"}],"\n",RowBox[
+{"(*",RowBox[{"OutputForm","[","quantumRationalM","]"}],"*)"}]}]],"Input",CellLabel -> "In[1]:= ",
+ExpressionUUID -> "7f35ca34-8134-4735-88b5-2c0ab7202caa"]},Open],ExpressionUUID -> "4d176f37-22be-486b-a30c-8e8caec60673"],Cell[
+CellGroupData[
+{Cell[
+TextData[{"Compute"," ","the"," ","Commutator"," ","via"," ","Non-Commutative"," ","Multiplication",":"}],
+"Section",ExpressionUUID -> "cd464f10-6269-4b47-8ef2-946a2d21864e"],Cell[
+BoxData[
+{RowBox[{RowBox[{"quantumRationalLM"," ","="," ",RowBox[{RowBox[{"Inner","[",RowBox[
+{"NonCommutativeMultiply",",","quantumRationalL",","," ","quantumRationalM"," ",","," ","Plus"}],"]"}]," ","//"," ","MatrixForm"}]}],";"}],"\n",RowBox[
+{RowBox[{"quantumRationalML"," ","="," ",RowBox[{RowBox[{"Inner","[",RowBox[{"NonCommutativeMultiply",",","quantumRationalM"," ",","," ","quantumRationalL",","," ","Plus"}],"]"}]," ","//"," ","MatrixForm"}]}],";"}],"\n",RowBox[
+{RowBox[{"quantumRationalCommutator"," ","="," ",RowBox[{"quantumRationalLM"," ","-"," ","quantumRationalML"}]}]," ",";"}]}],
+"Input",CellLabel -> "In[23]:= ",ExpressionUUID -> "cc785b6a-4487-406b-9a07-bf0557cee578"],Cell[
+BoxData[
+RowBox[{"(*",RowBox[{"OutputForm","[","quantumRationalCommutator","]"}],"*)"}]],"Input",
+CellLabel -> "In[5]:= ",ExpressionUUID -> "d0ea2152-5d99-4dfb-821d-b6bd4bd5dcaa"]},
+Open],ExpressionUUID -> "336a2b66-5fea-4aac-9102-6d0bef562522"],Cell[
+CellGroupData[
+{Cell[
+TextData[{"Compute"," ","the"," ","Integrals"," ","of"," ","Motion",":"}],
+"Section",ExpressionUUID -> "a7c4af31-3075-410e-9fa2-538cdc32dfb4"],Cell[
+BoxData[
+{RowBox[{RowBox[{"quantumRationalLax2"," ","=",RowBox[{"Inner","[",RowBox[{"NonCommutativeMultiply",","," ","quantumRationalL",","," ","quantumRationalL",","," ","Plus"}],"]"}]}],";"}],"\n",RowBox[
+{RowBox[{"quantumRationalJ2"," ","="," ",RowBox[{"Total","[",RowBox[{"quantumRationalLax2",","," ","3"}],"]"}]}],";"}],"\n",RowBox[
+{RowBox[{"OutputForm","[","quantumRationalJ2","]"}]," "}],RowBox[{"\n","\n"}],RowBox[
+{RowBox[{"quantumRationalLax3"," ","="," ",RowBox[{RowBox[{"Inner","[",RowBox[{"NonCommutativeMultiply",","," ","quantumRationalLax2",","," ","quantumRationalL",","," ","Plus"}],"]"}]," ","//"," ","MatrixForm"}]}],";"}],"\n",RowBox[
+{RowBox[{"quantumRationalJ3"," ","="," ",RowBox[{"Total","[",RowBox[{"quantumRationalLax3",","," ","3"}],"]"}]}],";"}],"\n",RowBox[
+{RowBox[{"OutputForm","[","quantumRationalJ3","]"}]," "}]}],"Input",CellLabel -> "In[26]:= ",
+ExpressionUUID -> "588e9794-102f-4d27-b24e-3e4b1127b700"]},Open],ExpressionUUID -> "3012f088-b4a9-4753-b637-8e741a1efe67"],Cell[
+CellGroupData[
+{Cell[
+TextData[{"Export"," ","to"," ","PDF",":"}],"Section",ExpressionUUID -> "c2b08c10-b9b2-4656-8dd1-2e6811ef5ca3"],Cell[
+BoxData[
+{RowBox[{RowBox[{"SetDirectory","[",RowBox[{"NotebookDirectory","[","]"}],"]"}],";"}],"\n",RowBox[
+{RowBox[{"Export","[",RowBox[{"\"laxPairQuantum.pdf\"",","," ",RowBox[{"EvaluationNotebook","[","]"}]}],"]"}],";"}]}],
+"Input",CellLabel -> "In[13]:= ",ExpressionUUID -> "bde52aba-b876-47b1-b29c-3419092bfc74"]},
+Open],ExpressionUUID -> "8284cb6f-8f16-4239-82e4-d45ec21b0a39"],Cell[
+CellGroupData[
+{Cell[
+TextData[{"References",":"}],"Section",ExpressionUUID -> "931e2f6d-fb34-4cec-955b-cb3fcab39665"],Cell[
+TextData[
+{"[","1",StyleBox[RowBox[{"]"," "}]],"P",StyleBox[RowBox[{"."," "}]],"Lax",StyleBox[
+RowBox[{",",StyleBox[" ",FontSlant -> Italic]}]],StyleBox["Integrals",FontSlant -> Italic],StyleBox[
+" ",FontSlant -> Italic],StyleBox["of",FontSlant -> Italic],StyleBox[" ",FontSlant -> Italic],StyleBox[
+"nonlinear",FontSlant -> Italic],StyleBox[" ",FontSlant -> Italic],StyleBox["equations",
+FontSlant -> Italic],StyleBox[" ",FontSlant -> Italic],StyleBox["of",FontSlant -> Italic],StyleBox[
+" ",FontSlant -> Italic],StyleBox["evolution",FontSlant -> Italic],StyleBox[" ",FontSlant -> Italic],StyleBox[
+"and",FontSlant -> Italic],StyleBox[" ",FontSlant -> Italic],StyleBox["solitary",
+FontSlant -> Italic],StyleBox[" ",FontSlant -> Italic],StyleBox["waves",FontSlant -> Italic],StyleBox[
+RowBox[{","," "}]],"Communications"," ","on"," ","Pure"," ","and"," ","Applied"," ","Mathematics"," ",StyleBox[
+"21",FontWeight -> Bold],StyleBox[RowBox[{" ","("}]],"1968",StyleBox[RowBox[{"),"," "}]],"no",StyleBox[
+RowBox[{"."," "}]],"5",StyleBox[RowBox[{","," "}]],"467","\[Dash]","490",StyleBox[
+RowBox[{"."," "}]],"\n","[","2",StyleBox[RowBox[{"]"," "}]],"S",StyleBox[RowBox[{"."," "}]],"Ruijsenaars",StyleBox[
+RowBox[{",",StyleBox[" ",FontSlant -> Italic]}]],StyleBox["Systems",FontSlant -> Italic],StyleBox[
+" ",FontSlant -> Italic],StyleBox["of",FontSlant -> Italic],StyleBox[" ",FontSlant -> Italic],StyleBox[
+"calogero-moser",FontSlant -> Italic],StyleBox[" ",FontSlant -> Italic],StyleBox[
+"type",FontSlant -> Italic],StyleBox[RowBox[{","," "}]],"Particles"," ","and"," ","Fields",StyleBox[
+RowBox[{" ","("}]],"G",StyleBox[RowBox[{"."," "}]],"Semenoff"," ","and"," ","L",StyleBox[
+RowBox[{"."," "}]],"Vinet",StyleBox[RowBox[{","," "}]],"eds",StyleBox[RowBox[{".),"," "}]],"Springer"," ","New"," ","York",StyleBox[
+RowBox[{","," "}]],"New"," ","York",StyleBox[RowBox[{","," "}]],"NY",StyleBox[RowBox[
+{","," "}]],"USA",StyleBox[RowBox[{","," "}]],"1999",StyleBox[RowBox[{","," "}]],"pp",StyleBox[
+RowBox[{"."," "}]],"251","\[Dash]","352",StyleBox[RowBox[{"."," "}]],"\n","[","3",StyleBox[
+RowBox[{"]"," "}]],"Y",StyleBox[RowBox[{"."," "}]],"Staneva",StyleBox[RowBox[{","," "}]],StyleBox[
+"Explicit",FontSlant -> Italic],StyleBox[" ",FontSlant -> Italic],StyleBox["Computations",
+FontSlant -> Italic],StyleBox[" ",FontSlant -> Italic],StyleBox["for",FontSlant -> Italic],StyleBox[
+" ",FontSlant -> Italic],StyleBox["the",FontSlant -> Italic],StyleBox[" ",FontSlant -> Italic],StyleBox[
+"Classical",FontSlant -> Italic],StyleBox[" ",FontSlant -> Italic],StyleBox["and",
+FontSlant -> Italic],StyleBox[" ",FontSlant -> Italic],StyleBox["Quantum",FontSlant -> Italic],StyleBox[
+" ",FontSlant -> Italic],StyleBox["Integrability",FontSlant -> Italic],StyleBox[" ",
+FontSlant -> Italic],StyleBox["of",FontSlant -> Italic],StyleBox[" ",FontSlant -> Italic],StyleBox[
+"the",FontSlant -> Italic],StyleBox[" ",FontSlant -> Italic],StyleBox["3-Dimensional",
+FontSlant -> Italic],StyleBox[" ",FontSlant -> Italic],StyleBox["Rational",FontSlant -> Italic],StyleBox[
+" ",FontSlant -> Italic],StyleBox["Calogero-Moser",FontSlant -> Italic],StyleBox[
+" ",FontSlant -> Italic],StyleBox["System",FontSlant -> Italic],StyleBox[RowBox[{StyleBox[
+",",FontSlant -> Italic],StyleBox[" ",FontSlant -> Plain],StyleBox["(",FontSlant -> Plain]}]],StyleBox[
+"2020",FontSlant -> Plain],StyleBox[RowBox[{StyleBox["),",FontSlant -> Plain],StyleBox[
+" ",FontSlant -> Plain]}]],StyleBox["arXiv",FontSlant -> Plain],StyleBox[":",FontSlant -> Plain],StyleBox[
+"2008",FontSlant -> Plain],StyleBox[".",FontSlant -> Plain],StyleBox["07765v1",FontSlant -> Plain],StyleBox[
+RowBox[{StyleBox[",",FontSlant -> Plain],StyleBox[" ",FontSlant -> Plain],StyleBox[
+"\t",FontSlant -> Plain]}]],Cell[
+BoxData[Cell[
+Cell[
+TemplateBox[{"\"https://arxiv.org/pdf/2008.07765.pdf\"","https://arxiv.org/pdf/2008.07765.pdf"},
+"HyperlinkURL"],ExpressionUUID -> "f32424bd-26ff-4162-a70f-fe2bcf902442"]]]],StyleBox[
+".",FontSlant -> Plain],"\n","[","4",StyleBox[RowBox[{"]"," "}]],"H",StyleBox[RowBox[
+{"."," "}]],"Ujino",StyleBox[RowBox[{","," "}]],"K",StyleBox[RowBox[{"."," "}]],"Hikami",StyleBox[
+RowBox[{","," "}]],"and"," ","M",StyleBox[RowBox[{"."," "}]],"Wadati",StyleBox[RowBox[
+{",",StyleBox[" ",FontSlant -> Italic]}]],StyleBox["Integrability",FontSlant -> Italic],StyleBox[
+" ",FontSlant -> Italic],StyleBox["of",FontSlant -> Italic],StyleBox[" ",FontSlant -> Italic],StyleBox[
+"the",FontSlant -> Italic],StyleBox[" ",FontSlant -> Italic],StyleBox["quantum",FontSlant -> Italic],StyleBox[
+" ",FontSlant -> Italic],StyleBox["calogero-moser",FontSlant -> Italic],StyleBox[
+" ",FontSlant -> Italic],StyleBox["model",FontSlant -> Italic],StyleBox[RowBox[{","," "}]],"Journal"," ","of"," ","the"," ","Physical"," ","Society"," ","of"," ","Japan"," ",StyleBox[
+"61",FontWeight -> Bold],StyleBox[RowBox[{" ","("}]],"1992",StyleBox[RowBox[{"),"," "}]],"no",StyleBox[
+RowBox[{"."," "}]],"10",StyleBox[RowBox[{","," "}]],"3425","\[Dash]","3427",StyleBox[
+RowBox[{"."," "}]]}],"Text",ExpressionUUID -> "f69f6e1b-3afc-43c7-aa77-20f9f167bf4d"]},
+Open],ExpressionUUID -> "1637ba5e-130a-46ab-8ef6-079d88e0674f"]},Open],ExpressionUUID -> "fd9166f4-e21b-4a43-8c3f-fb3008ce1348"]},
+StyleDefinitions -> "Default.nb",FrontEndVersion -> "12.1 for Wolfram Cloud 1.56 (September 30, 2020)"]

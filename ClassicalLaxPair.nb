@@ -1,0 +1,155 @@
+Notebook[{Cell[
+CellGroupData[{Cell[
+TextData[{"Classical"," ","Lax"," ","Pairs"}],
+"Title",ExpressionUUID -> "ffadde52-5e43-45ca-b59a-18fa800d9192"],Cell[
+CellGroupData[
+{Cell[
+TextData[{"Yana"," ","Staneva","\n","University"," ","of"," ","Cologne",StyleBox[
+RowBox[{","," "}]],"2020",StyleBox[RowBox[{" ","/"," "}]],"University"," ","of"," ","Glasgow",StyleBox[
+RowBox[{","," "}]],"2017","\n","<","ystaneva","@","math",".","uni-koeln",".","de",StyleBox[
+RowBox[{">"," ","<"}]],StyleBox[StyleBox["yanastaneva8",FontFamily -> "Bitstream Vera Sans Mono"],
+FontSize -> 18],StyleBox[StyleBox["@",FontFamily -> "Bitstream Vera Sans Mono"],FontSize -> 18],StyleBox[
+StyleBox["gmail",FontFamily -> "Bitstream Vera Sans Mono"],FontSize -> 18],StyleBox[
+StyleBox[".",FontFamily -> "Bitstream Vera Sans Mono"],FontSize -> 18],StyleBox[StyleBox[
+"com",FontFamily -> "Bitstream Vera Sans Mono"],FontSize -> 18],">"}],"Subsection",
+CellFrame -> 0,ExpressionUUID -> "4c2c5fde-4c41-41a0-8f91-6ceeb1e951e2"],Cell[
+TextData[
+{"This"," ","notebook"," ","computes"," ","the"," ","commutator"," ","of"," ","two"," ","3x3"," ","matrices",StyleBox[
+RowBox[{","," "}]],"L"," ","and"," ","M",StyleBox[RowBox[{","," "}]],"which"," ","constitute"," ","a"," ","Lax"," ","pair"," ","for"," ","a"," ","given"," ","3D"," ","integrable"," ","system",StyleBox[
+RowBox[{" ","["}]],"1",StyleBox[RowBox[{"]."," "}]],"It"," ","also"," ","provides"," ","symbolic"," ","expressions"," ","for"," ","the"," ","first"," ","three"," ","integrals"," ","of"," ","motion",StyleBox[
+RowBox[{"."," "}]],"The"," ","code"," ","can"," ","be"," ","exported"," ","to"," ","a"," ","PDF",StyleBox[
+RowBox[{","," "}]],"in"," ","order"," ","to"," ","be"," ","included"," ","in"," ","a"," ","LaTeX"," ","file",".","\n","\n","The"," ","notebook"," ","can"," ","be"," ","used"," ","to"," ","check"," ","if"," ","a"," ","given"," ","pair"," ","satisfies"," ","indeed"," ","the"," ","commuting"," ","relation",StyleBox[
+RowBox[{","," "}]],"or"," ","to"," ","manipulate"," ","an"," ","expression"," ","in"," ","order"," ","to"," ","derive"," ","the"," ","desired"," ","Lax"," ","pair",StyleBox[
+RowBox[{"."," "}]],"Note"," ","that"," ","L"," ","is"," ","isospectral",".","\n","\n","The"," ","code"," ","as"," ","it"," ","is"," ","treats"," ","the"," ","Lax"," ","pair"," ","for"," ","the"," ","3D"," ","Classical"," ","Calogero-Moser"," ","system",StyleBox[
+RowBox[{" ","["}]],"2",StyleBox[RowBox[{"]."," "}]],"It"," ","is"," ","used"," ","in"," ","the"," ","work"," ","of"," ","the"," ","author",StyleBox[
+RowBox[{" ","["}]],"3","].","\n","\n","Do"," ","not"," ","hesitate"," ","to"," ","contact"," ","the"," ","author"," ","with"," ","any"," ","questions"," ","or"," ","queries",".","\n"}],
+"Text",ExpressionUUID -> "dbb46e12-819b-46e2-a476-a80768069174"]},Open],ExpressionUUID -> "55ccc061-b611-4c36-be9b-2e973e649723"],Cell[
+CellGroupData[
+{Cell[
+TextData[{"Input"," ","Lax"," ","Matrices"," ","L",StyleBox[RowBox[{" ","&"," "}]],"M",":"}],
+"Section",ExpressionUUID -> "591ad6f6-5793-4c88-9a55-46d0fbd584b0"],Cell[
+BoxData[
+RowBox[{RowBox[{RowBox[{"classicalRationalL"," ","="," ",RowBox[{"{",RowBox[{RowBox[
+{"{",RowBox[{RowBox[{"Subscript","[",RowBox[{"p",",","1"}],"]"}],","," ",RowBox[{"\[ImaginaryI]"," ","k"," ",RowBox[
+{"Power","[",RowBox[{RowBox[{"Subscript","[",RowBox[{"q",","," ","12"}],"]"}],","," ",RowBox[
+{"HoldForm","[",RowBox[{"-","1"}],"]"}]}],"]"}]}],",","\n"," ",RowBox[{"\[ImaginaryI]k"," ",RowBox[
+{"Power","[",RowBox[{RowBox[{"Subscript","[",RowBox[{"q",","," ","13"}],"]"}],","," ",RowBox[
+{"HoldForm","[",RowBox[{"-","1"}],"]"}]}],"]"}]}]}],"}"}],",","\n",RowBox[{"{"," ",RowBox[
+{RowBox[{"\[ImaginaryI]k"," ",RowBox[{"Power","[",RowBox[{RowBox[{"Subscript","[",RowBox[
+{"q",","," ","21"}],"]"}],","," ",RowBox[{"HoldForm","[",RowBox[{"-","1"}],"]"}]}],"]"}]}],",",RowBox[
+{"Subscript","[",RowBox[{"p",",","2"}],"]"}],",","\n"," ",RowBox[{"\[ImaginaryI]"," ","k"," ",RowBox[
+{"Power","[",RowBox[{RowBox[{"Subscript","[",RowBox[{"q",","," ","23"}],"]"}],","," ",RowBox[
+{"HoldForm","[",RowBox[{"-","1"}],"]"}]}],"]"}]}]}],"}"}],",","\n",RowBox[{"{"," ",RowBox[
+{RowBox[{"\[ImaginaryI]"," ","k"," ",RowBox[{"Power","[",RowBox[{RowBox[{"Subscript","[",RowBox[
+{"q",","," ","31"}],"]"}],","," ",RowBox[{"HoldForm","[",RowBox[{"-","1"}],"]"}]}],"]"}]}],",","\n"," ",RowBox[
+{"\[ImaginaryI]"," ","k"," ",RowBox[{"Power","[",RowBox[{RowBox[{"Subscript","[",RowBox[
+{"q",","," ","32"}],"]"}],","," ",RowBox[{"HoldForm","[",RowBox[{"-","1"}],"]"}]}],"]"}]}],",",RowBox[
+{"Subscript","[",RowBox[{"p",",","3"}],"]"}]}],"}"}]}],"}"}]}],";"}],"\n","\[NonBreakingSpace]",RowBox[
+{"(*",RowBox[{"OutputForm","[","classicalRationalL","]"}],"*)"}]}]],"Input",CellLabel -> "In[42]:= ",
+ExpressionUUID -> "0032fb8b-79a6-4668-b843-6c366db2a597"],Cell[
+BoxData[RowBox[{RowBox[
+{RowBox[{"classicalRationalM"," ","="," ",RowBox[{"{",RowBox[{RowBox[{"{",RowBox[
+{RowBox[{"\[ImaginaryI]kPower","[",RowBox[{RowBox[{"Subscript","[",RowBox[{"q",",","1213"}],"]"}],","," ",RowBox[
+{"HoldForm","[",RowBox[{"-","2"}],"]"}]}],"]"}],",","\n",RowBox[{"-",RowBox[{"\[ImaginaryI]kPower","[",RowBox[
+{RowBox[{"Subscript","[",RowBox[{"q",",","12"}],"]"}],","," ",RowBox[{"HoldForm","[",RowBox[
+{"-","2"}],"]"}]}],"]"}]}],",","\n",RowBox[{"-",RowBox[{"\[ImaginaryI]kPower","[",RowBox[
+{RowBox[{"Subscript","[",RowBox[{"q",",","13"}],"]"}],","," ",RowBox[{"HoldForm","[",RowBox[
+{"-","2"}],"]"}]}],"]"}]}]}],"}"}],",","\n",RowBox[{"{",RowBox[{RowBox[{"-",RowBox[
+{"\[ImaginaryI]kPower","[",RowBox[{RowBox[{"Subscript","[",RowBox[{"q",",","21"}],"]"}],","," ",RowBox[
+{"HoldForm","[",RowBox[{"-","2"}],"]"}]}],"]"}]}],",","\n",RowBox[{"\[ImaginaryI]kPower","[",RowBox[
+{RowBox[{"Subscript","[",RowBox[{"q",",","2123"}],"]"}],","," ",RowBox[{"HoldForm","[",RowBox[
+{"-","2"}],"]"}]}],"]"}],",","\n",RowBox[{"-",RowBox[{"\[ImaginaryI]kPower","[",RowBox[
+{RowBox[{"Subscript","[",RowBox[{"q",",","23"}],"]"}],","," ",RowBox[{"HoldForm","[",RowBox[
+{"-","2"}],"]"}]}],"]"}]}]}],"}"}],",","\n",RowBox[{"{",RowBox[{RowBox[{"-",RowBox[
+{"\[ImaginaryI]kPower","[",RowBox[{RowBox[{"Subscript","[",RowBox[{"q",",","31"}],"]"}],","," ",RowBox[
+{"HoldForm","[",RowBox[{"-","2"}],"]"}]}],"]"}]}],",","\n",RowBox[{"-",RowBox[{"\[ImaginaryI]kPower","[",RowBox[
+{RowBox[{"Subscript","[",RowBox[{"q",",","32"}],"]"}],","," ",RowBox[{"HoldForm","[",RowBox[
+{"-","2"}],"]"}]}],"]"}]}],",","\n",RowBox[{"\[ImaginaryI]kPower","[",RowBox[{RowBox[
+{"Subscript","[",RowBox[{"q",",","3132"}],"]"}],","," ",RowBox[{"HoldForm","[",RowBox[
+{"-","2"}],"]"}]}],"]"}]}],"}"}]}],"}"}]}],";"}],"\n",RowBox[{"(*",RowBox[{"OutputForm","[","classicalRationalM","]"}],"*)"}]}]],
+"Input",CellLabel -> "In[43]:= ",ExpressionUUID -> "5b6f17f0-a2c5-455a-bab6-da1c83a3735c"]},
+Open],ExpressionUUID -> "020d9fe9-0437-4210-92ca-b6147667d065"],Cell[
+CellGroupData[
+{Cell[
+TextData[{"Compute"," ","the"," ","Commutator",":"}],"Section",ExpressionUUID -> "56998a71-68dd-4445-b0dd-5e0a6f459e23"],Cell[
+BoxData[
+{RowBox[{RowBox[{"classicalRationalLM"," ","="," ",RowBox[{"classicalRationalL",".","classicalRationalM"}]}],";"}],"\n",RowBox[
+{RowBox[{"classicalRationalML"," ","=",RowBox[{"classicalRationalM",".","classicalRationalL"}]}],";"}],"\n",RowBox[
+{RowBox[{"classicalRationalCommutator"," ","="," ",RowBox[{"classicalRationalLM"," ","-"," ","classicalRationalML"}]}],";"}]}],
+"Input",CellLabel -> "In[44]:= ",ExpressionUUID -> "5c4c9e31-c630-4aaa-bbc9-d094e144f179"],Cell[
+BoxData[
+RowBox[{"(*",RowBox[{"OutputForm","[","classicalRationalCommutator","]"}],"*)"}]],
+"Input",CellLabel -> "In[47]:= ",ExpressionUUID -> "284f69f3-422a-4f0c-8199-ea2f25a7214a"]},
+Open],ExpressionUUID -> "f5991eaa-c943-428a-a4d6-a8103f8f398a"],Cell[
+CellGroupData[
+{Cell[
+TextData[{"Compute"," ","the"," ","Integrals"," ","of"," ","Motion",":"}],
+"Section",ExpressionUUID -> "350475ee-f402-49b8-877b-36f320bbac33"],Cell[
+BoxData[
+{RowBox[{RowBox[{"classicalRationalLax2"," ","="," ",RowBox[{"MatrixPower","[",RowBox[
+{"classicalRationalL",","," ","2"}],"]"}]}],";"}],"\n",RowBox[{RowBox[{"classicalRationalIntegral2"," ","="," ",RowBox[
+{"Tr","[","classicalRationalLax2","]"}]}],";"}],"\n",RowBox[{RowBox[{"OutputForm","[","classicalRationalIntegral2","]"}]," "}],RowBox[
+{"\n","\n"}],RowBox[{RowBox[{"classicalRationalLax3"," ","="," ",RowBox[{"MatrixPower","[",RowBox[
+{"classicalRationalL",","," ","3"}],"]"}]}],";"}],"\n",RowBox[{RowBox[{"classicalRationalIntegral3"," ","="," ",RowBox[
+{"Tr","[","classicalRationalLax3","]"}]}],";"}],"\n",RowBox[{RowBox[{"OutputForm","[","classicalRationalIntegral3","]"}]," "}]}],
+"Input",CellLabel -> "In[48]:= ",ExpressionUUID -> "d9c58ece-4e43-47cc-8d2b-cde80f563512"]},
+Open],ExpressionUUID -> "08bd34e8-6257-45a7-9376-680cb236ccf4"],Cell[
+CellGroupData[
+{Cell[
+TextData[{"Export"," ","to"," ","PDF",":"}],"Section",ExpressionUUID -> "a1cbf62c-2274-4844-a64a-908172c09328"],Cell[
+BoxData[
+{RowBox[{RowBox[{"SetDirectory","[",RowBox[{"NotebookDirectory","[","]"}],"]"}],";"}],"\n",RowBox[
+{RowBox[{"Export","[",RowBox[{"\"laxPairClassical.pdf\"",","," ",RowBox[{"EvaluationNotebook","[","]"}]}],"]"}],";"}]}],
+"Input",CellLabel -> "In[54]:= ",ExpressionUUID -> "855b40db-13dc-46fb-b59f-7bc51a51d571"]},
+Open],ExpressionUUID -> "b6614e95-9408-41df-9271-fa62a1f77d5d"],Cell[
+CellGroupData[
+{Cell[
+TextData[{"References",":"}],"Section",ExpressionUUID -> "4e372e35-3e49-418e-9685-ed4facaa373c"],Cell[
+TextData[
+{"[","1",StyleBox[RowBox[{"]"," "}]],"P",StyleBox[RowBox[{"."," "}]],"Lax",StyleBox[
+RowBox[{",",StyleBox[" ",FontSlant -> Italic]}]],StyleBox["Integrals",FontSlant -> Italic],StyleBox[
+" ",FontSlant -> Italic],StyleBox["of",FontSlant -> Italic],StyleBox[" ",FontSlant -> Italic],StyleBox[
+"nonlinear",FontSlant -> Italic],StyleBox[" ",FontSlant -> Italic],StyleBox["equations",
+FontSlant -> Italic],StyleBox[" ",FontSlant -> Italic],StyleBox["of",FontSlant -> Italic],StyleBox[
+" ",FontSlant -> Italic],StyleBox["evolution",FontSlant -> Italic],StyleBox[" ",FontSlant -> Italic],StyleBox[
+"and",FontSlant -> Italic],StyleBox[" ",FontSlant -> Italic],StyleBox["solitary",
+FontSlant -> Italic],StyleBox[" ",FontSlant -> Italic],StyleBox["waves",FontSlant -> Italic],StyleBox[
+RowBox[{","," "}]],"Communications"," ","on"," ","Pure"," ","and"," ","Applied"," ","Mathematics"," ",StyleBox[
+"21",FontWeight -> Bold],StyleBox[RowBox[{" ","("}]],"1968",StyleBox[RowBox[{"),"," "}]],"no",StyleBox[
+RowBox[{"."," "}]],"5",StyleBox[RowBox[{","," "}]],"467","\[Dash]","490",StyleBox[
+RowBox[{"."," "}]],"\n","[","2",StyleBox[RowBox[{"]"," "}]],"J",StyleBox[RowBox[{"."," "}]],"Moser",StyleBox[
+RowBox[{",",StyleBox[" ",FontSlant -> Italic]}]],StyleBox["Three",FontSlant -> Italic],StyleBox[
+" ",FontSlant -> Italic],StyleBox["integrable",FontSlant -> Italic],StyleBox[" ",
+FontSlant -> Italic],StyleBox["hamiltonian",FontSlant -> Italic],StyleBox[" ",FontSlant -> Italic],StyleBox[
+"systems",FontSlant -> Italic],StyleBox[" ",FontSlant -> Italic],StyleBox["connected",
+FontSlant -> Italic],StyleBox[" ",FontSlant -> Italic],StyleBox["with",FontSlant -> Italic],StyleBox[
+" ",FontSlant -> Italic],StyleBox["isospectral",FontSlant -> Italic],StyleBox[" ",
+FontSlant -> Italic],StyleBox["deformations",FontSlant -> Italic],StyleBox[RowBox[
+{","," "}]],"Advances"," ","in"," ","Mathematics"," ",StyleBox["16",FontWeight -> Bold],StyleBox[
+RowBox[{" ","("}]],"1975",StyleBox[RowBox[{"),"," "}]],"no",StyleBox[RowBox[{"."," "}]],"2",StyleBox[
+RowBox[{","," "}]],"197","\[Dash]","220",StyleBox[RowBox[{"."," "}]],"\n","[","3",StyleBox[
+RowBox[{"]"," "}]],"Y",StyleBox[RowBox[{"."," "}]],"Staneva",StyleBox[RowBox[{","," "}]],StyleBox[
+"Explicit",FontSlant -> Italic],StyleBox[" ",FontSlant -> Italic],StyleBox["Computations",
+FontSlant -> Italic],StyleBox[" ",FontSlant -> Italic],StyleBox["for",FontSlant -> Italic],StyleBox[
+" ",FontSlant -> Italic],StyleBox["the",FontSlant -> Italic],StyleBox[" ",FontSlant -> Italic],StyleBox[
+"Classical",FontSlant -> Italic],StyleBox[" ",FontSlant -> Italic],StyleBox["and",
+FontSlant -> Italic],StyleBox[" ",FontSlant -> Italic],StyleBox["Quantum",FontSlant -> Italic],StyleBox[
+" ",FontSlant -> Italic],StyleBox["Integrability",FontSlant -> Italic],StyleBox[" ",
+FontSlant -> Italic],StyleBox["of",FontSlant -> Italic],StyleBox[" ",FontSlant -> Italic],StyleBox[
+"the",FontSlant -> Italic],StyleBox[" ",FontSlant -> Italic],StyleBox["3-Dimensional",
+FontSlant -> Italic],StyleBox[" ",FontSlant -> Italic],StyleBox["Rational",FontSlant -> Italic],StyleBox[
+" ",FontSlant -> Italic],StyleBox["Calogero-Moser",FontSlant -> Italic],StyleBox[
+" ",FontSlant -> Italic],StyleBox["System",FontSlant -> Italic],StyleBox[RowBox[{StyleBox[
+",",FontSlant -> Italic],StyleBox[" ",FontSlant -> Plain],StyleBox["(",FontSlant -> Plain]}]],StyleBox[
+"2020",FontSlant -> Plain],StyleBox[RowBox[{StyleBox["),",FontSlant -> Plain],StyleBox[
+" ",FontSlant -> Plain]}]],StyleBox["arXiv",FontSlant -> Plain],StyleBox[":",FontSlant -> Plain],StyleBox[
+"2008",FontSlant -> Plain],StyleBox[".",FontSlant -> Plain],StyleBox["07765v1",FontSlant -> Plain],StyleBox[
+RowBox[{StyleBox[",",FontSlant -> Plain],StyleBox[" ",FontSlant -> Plain],StyleBox[
+"\t",FontSlant -> Plain]}]],Cell[
+BoxData[Cell[
+TemplateBox[{"\"https://arxiv.org/pdf/2008.07765.pdf\"","https://arxiv.org/pdf/2008.07765.pdf"},
+"HyperlinkURL"],ExpressionUUID -> "f32424bd-26ff-4162-a70f-fe2bcf902442"]]],StyleBox[
+".",FontSlant -> Plain],"\n"}],"Text",ExpressionUUID -> "0ec875d1-e9c4-42a3-95a6-01e702b478a5"]},
+Open],ExpressionUUID -> "8cd6c6db-b764-411d-965f-54b4ee581b53"]},Open],ExpressionUUID -> "fa5bd83b-bfe8-47d5-89f7-44edf1434f8e"]},
+StyleDefinitions -> "Default.nb",FrontEndVersion -> "12.1 for Wolfram Cloud 1.56 (September 30, 2020)",
+TaggingRules -> {"TryRealOnly" -> False}]
